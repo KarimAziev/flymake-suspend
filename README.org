@@ -1,0 +1,39 @@
+* flymake-suspend
+
+Minor mode to temporarly inhibit Flymake Backends according to the last command. By default it will inhibit ~checkdoc~ and ~package-lint~ after narrowing and restore them ~widen~.
+
+** Installation
+
+Emacs >= 25.1 is required.
+
+*** Manual
+
+Download the source code and put it wherever you like, e.g. into =~/.emacs.d/flymake-suspend/=
+
+#+begin_src shell :eval no
+git clone https://github.com/KarimAziev/flymake-suspend.git ~/.emacs.d/flymake-suspend/
+#+end_src
+
+Add the downloaded directory to the load path:
+
+#+begin_src elisp :eval no
+(add-to-list 'load-path "~/.emacs.d/flymake-suspend/")
+(require 'flymake-suspend)
+#+end_src
+
+#+begin_src elisp :eval no
+(use-package flymake-suspend
+  :straight (flymake-suspend
+             :repo "KarimAziev/flymake-suspend"
+             :type git
+             :host github))
+#+end_src
+
+** Minor mode
+
+*** ~flymake-suspend-mode~
+Temporarly inhibit flymake backends after some commands. This commands is specified in =flymake-suspend-command-disablers-alist=.
+** Customization
+
+*** ~flymake-suspend-command-disablers-alist~
+Alist of commands and corresponding handlers with args. Every element is a cons which car is command symbol, and cdr it is a list, where first element is a function and rest of the elements - the arguments.
