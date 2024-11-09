@@ -6,7 +6,7 @@
 ;; Version: 0.1.0
 ;; Keywords: lisp convenience
 ;; Author: Karim Aziiev <karim.aziiev@gmail.com>
-;; Package-Requires: ((emacs "25.1"))
+;; Package-Requires: ((emacs "26.1"))
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;; This file is NOT part of GNU Emacs.
