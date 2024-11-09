@@ -65,7 +65,7 @@ where first element is a function and rest of the elements - the arguments."
 
 (defun flymake-suspend-inhibit-backends (&rest backends)
   "Suspend flymake BACKENDS and put them to `flymake-suspend-suspended-backends'."
-  (when-let ((inhibited-backends (and
+  (when-let* ((inhibited-backends (and
                                   (bound-and-true-p flymake-mode)
                                   (seq-intersection flymake-diagnostic-functions
                                                     backends))))
@@ -91,7 +91,7 @@ where first element is a function and rest of the elements - the arguments."
 If `this-command' is is eq to the car of an element of
 `flymake-suspend-command-disablers-alist', it will be called the
 corresponding handler."
-  (when-let ((cell (assq this-command
+  (when-let* ((cell (assq this-command
                          flymake-suspend-command-disablers-alist)))
     (let ((worker (cadr cell))
           (args (cddr cell)))
